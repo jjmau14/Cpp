@@ -37,6 +37,9 @@ int main(){
 	
 	// Lambda Functions
 	set<int> s = {2,3,4,5,6,23,5,6,34,23,34,5,65,32,213,23,45,63,2};
+	// iterates until it finds a value > 20 begining at the set begin() and
+	// ending at set end() using a lambda function to determine > 20
 	auto itor = find_if(s.begin(), s.end(), [](int n){return n>20;});
+	// Should print 23
 	cout << *itor << endl;
 }
