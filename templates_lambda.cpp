@@ -16,6 +16,9 @@ class Point{
 		}
 		T getx() const {return x;}
 		T gety() const {return y;}
+		friend ostream &operator<<(ostream &out, const Point<T> &p){
+			return out << "[" << p.x << ", " << p.y << "]\n";
+		}
 };
 
 // Functor
@@ -29,7 +32,7 @@ class Adder {
 int main(){
 	// Templates
 	Point<double> a(3.4, 2.1);
-	cout << "[" << a.getx() << ", " << a.gety() << "]\n";
+	cout << a;
 	
 	// Functors
 	Adder add;
