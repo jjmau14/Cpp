@@ -22,8 +22,13 @@ class vehicle{
 		friend string car_engine();
 		friend string truck_engine();
 };
-	string car_engine(){return string("V6");}
-	string truck_engine(){return string("V8");}
+
+string car_engine(){
+	return string("V6");
+}
+string truck_engine(){
+	return string("V8");
+}
 	
 // car is-a vehicle
 class car : public vehicle{
