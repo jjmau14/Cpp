@@ -18,23 +18,24 @@ class vehicle{
 		string make;
 		string vin;
 		
-		// Friend declarations -- car and use car_engine and truck can use truck_engine
-		friend string car_engine();
-		friend string truck_engine();
+		// Friend declarations -- The below functions are declared outside the vehicle class
+                // but can use private variables within the vehicle class
+		friend string car_engine(vehicle);
+		friend string truck_engine(vehicle);
 };
 
-string car_engine(){
-	return string("V6");
+string car_engine(vehicle v){
+	return string("V6: " + v.make);
 }
-string truck_engine(){
-	return string("V8");
+string truck_engine(vehicle v){
+	return string("V8: " + v.make);
 }
 	
 // car is-a vehicle
 class car : public vehicle{
 	public:
 		car(string make_, string vin_) : vehicle(make_, vin_){
-			cout << " | " << car_engine() << '\n';
+			cout << " | " << car_engine(*this) << '\n';
 		}
 };
 
@@ -42,7 +43,7 @@ class car : public vehicle{
 class truck : public vehicle{
 	public:
 		truck(string make_, string vin_) : vehicle(make_, vin_){
-			cout << " | " << truck_engine() << '\n';
+			cout << " | " << truck_engine(*this) << '\n';
 		}
 };
 
