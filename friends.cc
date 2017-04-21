@@ -18,8 +18,8 @@ class vehicle{
 		string make;
 		string vin;
 		
-		// Friend declarations -- The below functions are declared outside the vehicle class
-                // but can use private variables within the vehicle class
+		// Friend declarations -- The below functions are defined outside the vehicle class
+                // but are declared inside the class. Can use private variables within the vehicle class
 		friend string car_engine(vehicle);
 		friend string truck_engine(vehicle);
 };
