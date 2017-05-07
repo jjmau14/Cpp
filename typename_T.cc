@@ -37,10 +37,12 @@ class group {
 };
 
 int main(){
+    // Will print 10 because N is defaulted to 10
     group<int> group_a;
     for (auto x : group_a)
         cout << x << endl;
     
+    // Will print 192 because 192 override defaulted 10
     group<int, 192> group_b;
     for (auto x : group_b)
         cout << x << endl;
