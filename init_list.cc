@@ -6,15 +6,16 @@
 using std::cout;
 using std::endl;
 
+template<typename T>
 class myObject {
     
-    std::vector<int> myVector;
+    std::vector<T> myVector;
     
 public:
        
-    typedef typename std::vector<int>::iterator iterator;
+    typedef typename std::vector<T>::iterator iterator;
     
-    myObject(const std::initializer_list<int> &il){
+    myObject(const std::initializer_list<T> &il){
         for(auto item : il)
             myVector.push_back(item);
         // Tried using std::copy(il.begin(), il.end(), myVector.begin()) but didnt work
@@ -38,7 +39,7 @@ int main(){
         
     cout << endl;
         
-    myObject o = {10, 20, 30, 40, 50};
+    myObject<int> o = {10, 20, 30, 40, 50};
     for (auto item : o)
         cout << item << endl;
 }
