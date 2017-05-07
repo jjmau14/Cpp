@@ -24,6 +24,7 @@ class group {
         // To use enhanced for-each loop, must include
         // begin and end as well as typename above 
         iterator begin(){
+            // No need to implement my own iter; just return std::vector iterator
             return myVect.begin();
         }
         
