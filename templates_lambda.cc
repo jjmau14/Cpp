@@ -45,21 +45,26 @@ int main(){
 	// iterates until it finds a value > 20 begining at the v begin() and
 	// ending at v end() using a lambda function to determine > 20
         
-        // find_if
+    // find_if
 	auto itor = find_if(s.begin(), s.end(), [](int n){return n>20;});
-	// Should print 23
+	
+    // Should print 23
 	cout << *itor << endl;
         
-        //copy_if
-        itor = copy_if(s.begin(), s.end(), s.begin(), [](int n){
-            return n > 20 && n <= 63;
-        });
+    //copy_if
+    itor = copy_if(s.begin(), s.end(), s.begin(), [](int n){
+        return n > 20 && n <= 63;
+    });
         
-        // itor now contains the number of elements coppied so itor - begin() 
-        // for resize
-        s.resize(itor-s.begin());
-        for (auto x : s){
-            cout << x << ' ';
-        }
-        cout << endl;
+    // itor now contains the number of elements coppied so itor - begin() 
+    // for resize
+    s.resize(itor-s.begin());
+    for (auto x : s){
+        cout << x << ' ';
+    }
+
+    cout << endl;
+        
+    auto lambda_adder = [](int a, int b){return (a + b)/2;};
+    cout << lambda_adder(100, 2012) << endl;
 }
