@@ -8,7 +8,11 @@ using std::endl;
 void itor_able::add_item(std::string s){
     sentence.push_back(s);
 }
-    
+itor_able::itor &itor_able::itor::operator=(const itor_able::itor &rhs){
+    sentence = rhs.sentence;
+    current_location = rhs.current_location;
+    return *this;
+}
 itor_able::itor &itor_able::itor::operator++(){
     ++current_location;
     return *this;
@@ -16,6 +20,15 @@ itor_able::itor &itor_able::itor::operator++(){
 itor_able::itor itor_able::itor::operator++(int){
     const auto save = *this;
     ++*this;
+    return save;
+}
+itor_able::itor &itor_able::itor::operator--(){
+    --current_location;
+    return *this;
+}
+itor_able::itor itor_able::itor::operator--(int){
+    const auto save = *this;
+    --*this;
     return save;
 }
 std::string itor_able::itor::operator*(){

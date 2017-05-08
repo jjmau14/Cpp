@@ -15,8 +15,11 @@ public:
         int current_location;
     public:
         itor(std::vector<std::string> &sentence_, int current_location_ = 0) : sentence(sentence_), current_location(current_location_){}
+        itor &operator=(const itor_able::itor &);
         itor &operator++();
         itor operator++(int);
+        itor &operator--();
+        itor operator--(int);
         std::string operator*();
         bool operator==(itor &);
         bool operator!=(itor &);
@@ -27,4 +30,5 @@ public:
     itor end();
     std::string front();
     std::string back();
+    
 };
