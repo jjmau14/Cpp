@@ -10,6 +10,7 @@ int main(int argc, char* argv[]){
         while(std::getline(file, temp)){
             count++;
         }
+        file.close();
     }
     std::cout << count << std::endl;
     
