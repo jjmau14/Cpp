@@ -3,10 +3,6 @@
 
 using namespace std;
 
-Node<T>* B_TREE::add_item(T item){
-	return Node;
-}
-
 int main(){
-
+	B_TREE<int> b_tree();
 }

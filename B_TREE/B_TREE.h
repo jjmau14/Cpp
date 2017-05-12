@@ -2,17 +2,20 @@
 #define B_TREE_H
 
 template <typename T>
-struct Node<T>{
-	Node<T>* left;
-	Node<T>* right;
+struct Node{
+	struct Node* left;
+	struct Node* right;
 	T data;
 };
 
 template <typename T>
 class B_TREE {
-	Node<T>* head;
+	struct Node<T>* head;
 public:
-	B_TREE(Node<T>* head_) : head(head_){
+	B_TREE(){
+		head = nullptr;
+	}
+	B_TREE(struct Node<T>* head_ = nullptr) : head(head_){
 		head->left = nullptr;
 		head->right = nullptr;
 	}
@@ -23,7 +26,32 @@ public:
 		head = other.head;
 		return *this;
 	}
-	Node<T>* add_item(T);
+	void add_item(T item){
+		Node<T>* node = &head;
+		if (!head){
+			head->data = item;
+			return;
+		}
+		while(node){
+			if (node->right && node->left){
+				if(item < node->data)
+					node = node->left;
+				else
+					node = node->right;
+			}
+			else if (!node->left){
+				node->left = new Node<T>;
+				node = node->left;
+				node->data = item;
+				return;
+			}else if (!node->right){
+				node->right = new Node<T>;
+				node = node->right;
+				node->data = item;
+				return;
+			}
+		}
+	}
 };
 
 #endif
